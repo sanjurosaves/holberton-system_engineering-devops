@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $PATH | tr -cd : | wc -c #need to figure out how to add 1 to this
