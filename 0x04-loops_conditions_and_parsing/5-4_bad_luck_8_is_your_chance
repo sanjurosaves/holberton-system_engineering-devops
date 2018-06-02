@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# prints luck status or Holberton School ten times
+
+i=0
+while [ $i -le 9 ]
+do
+    if [ $i -eq 3 ]
+    then
+	echo "bad luck"
+    elif [ $i -eq 7 ]
+    then
+	echo "good luck"
+    else
+	echo "Holberton School"
+    fi
+    (( i++ ))
+done

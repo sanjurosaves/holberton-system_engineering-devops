@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#displays contents of dir in list format with only post dash chars
+
+for i in *
+do
+    if [ -f "$i" ]
+    then
+	echo "$i" | cut -d'-' -f2
+    fi
+done

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#cycles through hours and minutes
+
+hr=0
+mn=1
+
+while [ $hr -le 12 ]
+do
+    echo "Hour: $hr"
+    ((hr++))
+    while [ $mn -le 59 ]
+    do
+	echo $mn
+	((mn++))
+    done
+    mn=1
+done
