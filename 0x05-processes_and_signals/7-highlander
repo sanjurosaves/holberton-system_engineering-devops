@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# displays string indefinitely w/sleep 2 b/w each iteration
+resist() {
+    echo "I am invincible!!!"
+}
+
+trap resist SIGTERM
+
+while [ 1 ]
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
