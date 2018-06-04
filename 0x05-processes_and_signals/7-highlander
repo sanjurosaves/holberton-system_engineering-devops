@@ -6,7 +6,7 @@ resist() {
 
 trap resist SIGTERM
 
-while [ 1 ]
+while true
 do
     echo "To infinity and beyond"
     sleep 2
