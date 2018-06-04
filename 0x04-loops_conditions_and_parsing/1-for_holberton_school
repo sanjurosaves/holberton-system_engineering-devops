@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # prints Holberton School ten times
-
+# shellcheck disable=SC2034
 for i in {1..10}
 do
 	echo "Holberton School"
