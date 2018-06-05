@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# culmination of all mandatory tasks in this project
+# futility() {
+#    echo "I hate the kill command"
+#    rm holbertonscript.pid
+#    pkill -f "100-process_and_pid_file"
+# }
+#
+# resist() {
+#    echo "Y U no love me?!"
+# }
+#
+# drama_free_close() {
+#    rm holbertonscript.pid
+#    pkill -f "100-process_and_pid_file"
+# }
+
+FILE=/var/run/holbertonscript.pid
+echo $BASHPID > $FILE
+
+trap 'echo Y U no love me ?!' SIGINT
+trap 'echo I hate the kill command ; sudo rm $FILE ; exit' SIGTERM
+trap 'sudo rm $FILE ; exit' SIGQUIT
+
+while true
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
