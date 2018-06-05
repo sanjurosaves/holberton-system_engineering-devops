@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#manages manage_my_process script
+
+FILE=/var/run/my_process.pid
+
+case $1 in
+    start)
+	./manage_my_process &
+	echo $! > $FILE
+	echo "manage_my_process started"
+	;;
+    stop)
+	sudo pkill -f ./manage_my_process
+	sudo rm $FILE
+	echo "manage_my_process stopped"
+	;;
+    restart)
+	sudo pkill -f ./manage_my_process
+	sudo rm $FILE
+	./manage_my_process &
+	echo $! > $FILE
+	echo "manage_my_process restarted"
+	;;
+    *)
+	echo "Usage: manage_my_process {start|stop|restart}"
+	;;
+    esac
