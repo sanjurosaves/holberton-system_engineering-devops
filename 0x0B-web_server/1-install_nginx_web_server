@@ -2,4 +2,4 @@
 # configures a new Ubuntu machine with installed nginx web server
 apt-get update
 apt-get -y install nginx
-echo "Holberton School" > /usr/share/nginx/html/index.html
+echo "Holberton School for the win!" > /usr/share/nginx/html/index.html
