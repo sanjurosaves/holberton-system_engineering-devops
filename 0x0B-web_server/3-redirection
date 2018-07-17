@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 # configure Nginx server so that /redirect_me is redirecting to another page
-apt-get update
-apt-get -y install nginx
-echo "Holberton School for the win!" > /usr/share/nginx/html/index.html
 mkdir /usr/share/nginx/html/redirect_me/
 cp /usr/share/nginx/html/index.html /usr/share/nginx/html/redirect_me/index.html
 string1="# Only for nginx-naxsi"
 string2="location \/redirect_me\/index.html { rewrite ^\/(.*)$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent; }\n\n\t# Only for nginx-naxsi"
 sed -i "s/$string1/$string2/g" /etc/nginx/sites-available/default
-service nginx start
+service nginx restart
