@@ -3,4 +3,4 @@
 apt-get update
 apt-get -y install nginx
 echo "Holberton School for the win!" > /usr/share/nginx/html/index.html
-sudo service nginx start
+service nginx start
