@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# debug apache server to return a page when querying the root of it
+sudo sed -i 's/Listen 80/Listen 80\nListen 8080/g' /etc/apache2/ports.conf
+sudo /etc/init.d/apache2 restart
