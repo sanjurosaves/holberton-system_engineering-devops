@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # configures nginx with custom header HTTP response
 # shellcheck disable=SC2059
-name=$(hostname | cut -d '-' -f 2-4)
+name=$(hostname)
 string1="add_header X-Served-By "
 string2=";"
 line=$string1$name$string2
