@@ -2,4 +2,4 @@
 # debug apache server to return a page when querying the root of it
 ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx restart
-pkill -o ngnix
+pkill -o nginx
