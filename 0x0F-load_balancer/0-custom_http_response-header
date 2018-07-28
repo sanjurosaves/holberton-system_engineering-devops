@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # configures nginx with custom header HTTP response
 # shellcheck disable=SC2059
+sudo apt-get -y install nginx
 name=$(hostname)
 string1="add_header X-Served-By "
 string2=";"
