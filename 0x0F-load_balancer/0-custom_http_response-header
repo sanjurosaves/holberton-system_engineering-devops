@@ -5,5 +5,5 @@ name=$(hostname)
 string1="add_header X-Served-By "
 string2=";"
 line=$string1$name$string2
-sed -i "s/\# Uncomment to enable naxsi on this location/$line/g" /etc/nginx/sites-enabled/default
+sed -i "s/\# Uncomment to enable naxsi on this location/$line/g" /etc/nginx/sites-available/default
 service nginx restart
