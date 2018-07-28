@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # installs and configures HAProxy
-apt-get install haproxy=1.5\*
+apt-get update -y
+apt-get install -y haproxy
 sed -i "s|ENABLED=0|ENABLED=1|g" /etc/default/haproxy
 echo -e "frontend front_1
-\tbind *:80
+\tbind :80
 \tmode http
 \tdefault_backend back_1
 backend back_1
 \tmode http
-\thttp-request set-header X-Forwarded-Port %[dst_port]
 \tbalance roundrobin
 \toption forwardfor
 \tserver 325-web-01 35.237.92.195:80 check
