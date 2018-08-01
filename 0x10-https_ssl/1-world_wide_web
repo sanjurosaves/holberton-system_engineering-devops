@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# display information about subdomains
+
+domain="$1"
+
+all ()
+{
+    subs=(www lb-01 web-01 web-02)
+    for i in "${subs[@]}"; do
+	echo -n "The subdomain "${i}
+	dig +noall +answer ${i}".""$domain" | awk 'BEGIN { FS= "\t" } ; {print " is a " $4, "record and points to", $5}'
+    done
+}
+
+if [ -z "$2" ]
+then
+   all
+else
+    subdom="$2"
+    echo -n "The subdomain ""$2"
+    dig +noall +answer "$subdom"".""$domain" | awk 'BEGIN { FS= "\t" } ; {print " is a " $4, "record and points to", $5}'
+fi
