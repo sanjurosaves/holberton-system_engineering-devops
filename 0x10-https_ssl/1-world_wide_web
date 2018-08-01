@@ -8,7 +8,7 @@ all ()
     subs=(www lb-01 web-01 web-02)
     for i in "${subs[@]}"; do
 	echo -n "The subdomain "${i}
-	dig +noall +answer ${i}".""$domain" | awk 'BEGIN { FS= "\t" } ; {print " is a " $4, "record and points to", $5}'
+	dig +noall +answer "${i}"".""$domain" | awk 'BEGIN { FS= "\t" } ; {print " is a " $4, "record and points to", $5}'
     done
 }
 
