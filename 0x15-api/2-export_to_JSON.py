@@ -8,12 +8,6 @@ from collections import OrderedDict
 
 def gather_data():
     ''' retrieves data from the api '''
-    try:
-        userid = sys.argv[1]
-    except:
-        print('Usage: ./2-export_to_JSON.py <employee ID>')
-        return
-
     userurl = 'https://jsonplaceholder.typicode.com/users'
 
     t = requests.get(userurl+'/'+userid+'/todos')
@@ -41,13 +35,18 @@ def gather_data():
     return task_dict
 
 
-def save_to_json(data):
+def save_to_json(data, userid):
     ''' saves data to JSON '''
-    f = 'USER_ID.json'
+    f = str(userid)+'.json'
     with open(f, mode='w', encoding="UTF8") as fd:
         json.dump(data, fd)
 
 
 if __name__ == '__main__':
+    try:
+        userid = sys.argv[1]
+    except:
+        raise NameError('Usage: ./2-export_to_JSON.py <employee ID>')
+
     task_dict = gather_data()
-    save_to_json(task_dict)
+    save_to_json(task_dict, userid)
