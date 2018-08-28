@@ -28,7 +28,7 @@ def gather_data():
 
     user_dict = u.json()
     try:
-        emp_name = (user_dict['username'])
+        emp_name = (user_dict['name'])
     except:
         print("Employee does not exist.")
         return
