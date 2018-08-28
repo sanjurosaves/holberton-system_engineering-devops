@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 ''' module to print data from an api '''
-import json
 import requests
 import sys
 
@@ -41,7 +40,7 @@ def gather_data():
     for task in t.json():
         task_dict = task
         if task_dict['completed'] is True:
-            print(' \t{}'.format(task_dict['title']))
+            print('     {}'.format(task_dict['title']))
 
 
 if __name__ == '__main__':
