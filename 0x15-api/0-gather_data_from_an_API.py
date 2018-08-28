@@ -40,7 +40,7 @@ def gather_data():
     for task in t.json():
         task_dict = task
         if task_dict['completed'] is True:
-            print('     {}'.format(task_dict['title']))
+            print('\t {}'.format(task_dict['title']))
 
 
 if __name__ == '__main__':
