@@ -40,7 +40,7 @@ def gather_data():
 
 def save_to_csv(data):
     ''' saves data to csv file '''
-    f = 'SER_ID.csv'
+    f = 'USER_ID.csv'
 
     with open(f, 'w', newline='') as csvfile:
         taskwriter = csv.writer(csvfile, delimiter=',', lineterminator='\n',
