@@ -7,12 +7,6 @@ import sys
 
 def gather_data():
     ''' gathers data from api '''
-    try:
-        userid = sys.argv[1]
-    except:
-        print('Usage: ./1-export_to_CSV.py <employee id>')
-        return
-
     userurl = 'https://jsonplaceholder.typicode.com/users'
 
     t = requests.get(userurl+'/'+userid+'/todos')
@@ -38,9 +32,9 @@ def gather_data():
     return task_vals
 
 
-def save_to_csv(data):
+def save_to_csv(data, userid):
     ''' saves data to csv file '''
-    f = 'USER_ID.csv'
+    f = str(userid)+'.csv'
 
     with open(f, 'w', newline='') as csvfile:
         taskwriter = csv.writer(csvfile, delimiter=',', lineterminator='\n',
@@ -52,5 +46,10 @@ def save_to_csv(data):
 
 
 if __name__ == '__main__':
+    try:
+        userid = sys.argv[1]
+    except:
+        raise ValueError('Usage: ./1-export_to_CSV.py <employee id>')
+
     task_list = gather_data()
-    save_to_csv(task_list)
+    save_to_csv(task_list, userid)
