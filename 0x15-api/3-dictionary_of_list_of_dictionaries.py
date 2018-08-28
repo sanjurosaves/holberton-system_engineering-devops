@@ -13,28 +13,28 @@ def gather_data():
     u = requests.get(userurl)
 
     user_list = u.json()
-    eid_list = []
+    user_task_dict = {}
+
     for user in user_list:
-        user_dict = user
         task_dict = {}
         task_vals = []
-        user_task_dict = {}
-        t = requests.get(userurl+'/'+str(user_dict['id'])+'/todos')
+        t = requests.get(
+            'https://jsonplaceholder.typicode.com/users/' + str(user['id']) +
+            '/todos')
         for i in t.json():
             std = OrderedDict()
-            std['username'] = user_dict['username']
+            std['username'] = user['username']
             std['task'] = i['title']
             std['completed'] = i['completed']
             task_vals.append(std)
-        task_dict[str(user_dict['id'])] = task_vals
-        user_task_dict.update(task_dict)
+        user_task_dict[user['id']] = task_vals
 
     return user_task_dict
 
 
 def save_to_json(data):
     ''' saves data to JSON '''
-    f = 'USER_ID.json'
+    f = 'todo_all_employees.json'
     with open(f, mode='w', encoding="UTF8") as fd:
         json.dump(data, fd)
 
