@@ -30,12 +30,10 @@ def recurse(subreddit, hot_list=[], after=None):
     try:
         subr = r.json()['data']['children'][0]['data']['subreddit']
     except:
-        print(None)
-        return
+        return(None)
 
     if stat != 200 or subr != subreddit:
-        print(None)
-        return
+        return(None)
 
     for hot_item in r.json()['data']['children']:
         hot_list.append(hot_item['data']['title'])
