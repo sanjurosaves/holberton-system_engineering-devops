@@ -20,8 +20,9 @@ def recurse(subreddit, hot_list=[], after=None):
         url = 'http://www.reddit.com/r/{sr}/hot.json?limit=100'.format(
             sr=subreddit)
     else:
-        url = 'http://www.reddit.com/r/{sr}/hot.json?limit=100&after={af}'.format(
-            sr=subreddit, af=after)
+        url =\
+            'http://www.reddit.com/r/{sr}/hot.json?limit=100&after={af}'\
+            .format(sr=subreddit, af=after)
 
     r = requests.get(url, headers=a)
 
