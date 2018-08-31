@@ -35,8 +35,13 @@ def recurse(subreddit, hot_list=[], after=None):
     if stat != 200 or subr != subreddit:
         return(None)
 
-    for hot_item in r.json()['data']['children']:
-        hot_list.append(hot_item['data']['title'])
+    if hot_list == []:
+        hot_list = list(map(lambda hot_item: hot_item['data']['title'],
+                            r.json()['data']['children']))
+    else:
+        hl = list(map(lambda hot_item: hot_item['data']['title'],
+                      r.json()['data']['children']))
+        hot_list = hot_list + hl
 
     if r.json()['data']['after'] is not None:
         after = r.json()['data']['after']
