@@ -48,7 +48,7 @@ def recurse(subreddit, hot_list=[], after=None):
     else:
         return(hot_list)
 
-    return(recurse(subreddit, hot_list, after))
+    return recurse(subreddit, hot_list, after)
 
 
 if __name__ == '__main__':
