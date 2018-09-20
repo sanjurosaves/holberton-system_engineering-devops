@@ -5,4 +5,5 @@ exec { 'expand nginx user limit':
 
 exec { 'restart webserver':
   command => 'service nginx restart',
+  path    => ['/usr/bin', '/sbin', '/bin', '/usr/sbin']
 }
