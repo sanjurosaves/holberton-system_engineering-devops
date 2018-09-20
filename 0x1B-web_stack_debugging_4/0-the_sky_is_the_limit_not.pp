@@ -1,9 +1,5 @@
 # expand nginx user limit
-exec { 'expand nginx user limit':
-  command => '/bin/sed -i "s/15/4000/g" /etc/default/nginx',
-}
-
-exec { 'restart webserver':
-  command => 'service nginx restart',
-  path    => ['/usr/bin', '/sbin', '/bin', '/usr/sbin']
+exec { 'expand nginx user limit and restart webserver':
+  path    => ['/usr/bin', '/sbin', '/bin', '/usr/sbin'],
+  command => 'sed -i "s/15/4000/g" /etc/default/nginx; service nginx restart',
 }
